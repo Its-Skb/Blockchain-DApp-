@@ -95,16 +95,17 @@ Open http://localhost:3000 and connect your MetaMask wallet to the local network
 ---
 
 ## 🖼️ Screenshots
-Blockchain Dapp
-![DApp Main Interface](image.png)
 
-Ganache GUI
-![alt text](image-1.png)
+### Blockchain Dapp
+![DApp Main Interface](Blockchain DApp.png)
 
-Blocks Mined
-![alt text](image-2.png)
+### Ganache GUI
+![Ganache App GUI](Ganache GUI.png)
 
-Transaction Details
-![alt text](image-3.png)
+### Blocks Mined
+![Blocks Mined](Blocks Mined.png)
+
+### Transaction Details
+![Transaction of the process](Transaction Details.png)
 
 ---
