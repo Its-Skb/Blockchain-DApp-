@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blockchain Dataset Sharing DApp</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.0/dist/jszip.min.js"></script>
+
+    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #datasetTableContainer {
+            display: none;
+            max-height: 300px;
+            overflow-y: auto;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+
+        #datasetTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #datasetTable th, #datasetTable td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        #datasetTable th {
+            background-color: #f2f2f2;
+            position: sticky;
+            top: 0;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Blockchain Dataset Sharing DApp</h1>
+    
+    <button id="connectWallet">Connect Wallet</button>
+    <div id="status"></div>
+
+    <h3>Register Dataset:</h3>
+    <input type="text" id="datasetLinkInput" placeholder="Enter IPFS CID or URL" />
+    <button id="registerButton">Register Dataset</button>
+
+    <h3>📂 Shared Datasets</h3>
+    <button id="loadDatasets">Load Shared Datasets</button>
+
+    <div id="datasetTableContainer">
+        <table id="datasetTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>IPFS Link</th>
+                    <th>Action</th>
+                    <th>User</th>
+                    <th>Timestamp</th>
+                    <th>Downloads</th>
+                    <th>Activity</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <!-- <div id="datasetModal" style="display:none; position:fixed; top:10%; left:20%; width:60%; background:#fff; padding:20px; border:1px solid #ccc; box-shadow:0 0 10px rgba(0,0,0,0.5); z-index:999;">
+    <h3>Edit Dataset</h3>
+    <label>Dataset ID: <span id="modalDatasetId"></span></label><br><br>
+    <label>IPFS Link:</label><br>
+    <input type="text" id="modalIpfsLink" style="width:100%;"><br><br>
+    <label>Action:</label><br>
+    <input type="text" id="modalAction" style="width:100%;"><br><br>
+    <label>User:</label><br>
+    <input type="text" id="modalUser" style="width:100%;" disabled><br><br>
+    <label>Timestamp:</label><br>
+    <input type="text" id="modalTimestamp" style="width:100%;" disabled><br><br>
+
+    <button id="closeModal">Close</button>
+    <button id="saveChanges">Save Changes</button>
+    </div> -->
+    <div id="datasetEditorModal" style="display:none; position:fixed; top:5%; left:15%; width:70%; background:white; padding:20px; border:1px solid #ccc; z-index:999;">
+    <h3>Edit Dataset ID: <span id="datasetEditorId"></span></h3>
+    <textarea id="datasetEditorContent" style="width:100%; height:300px;"></textarea>
+    <input type="hidden" id="originalIpfsHash" />
+    <br />
+    <button id="saveEditedDataset">💾 Save to IPFS</button>
+    <button id="closeEditor">❌ Close</button>
+    </div>
+
+
+
+    <!-- <button id="viewActivity">📜 View Activity</button> -->
+    
+</body>
+</html>

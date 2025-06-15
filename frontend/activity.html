@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dataset Activity History</title>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+    <script src="activity.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #backButton {
+            margin-top: 10px;
+            margin-bottom: 20px;
+        }
+
+        #downloadSummary {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📊 Dataset Activity History</h1>
+
+    <button id="backButton">⬅ Back to Home</button>
+
+    <p>Enter a Dataset ID to view activity history:</p>
+    <input type="number" id="historyDatasetId" placeholder="Dataset ID" />
+    <button id="loadHistory">Load Activity</button>
+
+    <div id="historyContainer">
+        <table id="historyTable">
+            <thead>
+                <tr>
+                    <th>User</th>
+                    <th>Action</th>
+                    <th>Timestamp</th>
+                
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <div id="downloadSummary"></div>
+
+    <script>
+        // Back button navigates to index.html
+        document.getElementById("backButton").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+    </script>
+</body>
+</html>
